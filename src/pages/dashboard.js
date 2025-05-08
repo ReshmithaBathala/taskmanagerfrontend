@@ -13,6 +13,7 @@ const Dashboard = () => {
       const token = localStorage.getItem("token");
       if (!token) {
         router.push("/login");
+        return;
       }
       try {
         const tasksResponse = await axios.get(
@@ -55,6 +56,26 @@ const Dashboard = () => {
     }
   };
 
+  const handleDelete = async (taskId) => {
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this task?"
+    );
+    if (!confirmDelete) return;
+
+    const token = localStorage.getItem("token");
+    try {
+      await axios.delete(
+        `https://task-management-backend-q4u7.onrender.com/api/tasks/${taskId}`,
+        {
+          headers: { Authorization: token },
+        }
+      );
+      setTasks((prev) => prev.filter((task) => task._id !== taskId));
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   return (
     <div className={styles.container}>
       <h1 className={styles.header}>Dashboard</h1>
@@ -92,6 +113,12 @@ const Dashboard = () => {
                   Complete
                 </button>
               )}
+              <button
+                onClick={() => handleDelete(task._id)}
+                className={styles.deleteButton}
+              >
+                Delete
+              </button>
             </div>
             {task.dueDate && (
               <p className={styles.taskDueDate}>
@@ -102,19 +129,22 @@ const Dashboard = () => {
         ))}
       </div>
 
-      {/* <h2 className={styles.sectionTitle}>Notifications</h2> */}
-      {/* <div className={styles.notificationsList}>
+      {/* Uncomment if you want to display notifications */}
+      {/* 
+      <h2 className={styles.sectionTitle}>Notifications</h2>
+      <div className={styles.notificationsList}>
         {notifications.map((notification, index) => (
-          <div 
-            key={notification._id} 
+          <div
+            key={notification._id}
             className={styles.notificationItem}
-            style={{ animationDelay: `${index * 0.05}s` }}
+            style={{ animationDelay: ${index * 0.05}s }}
           >
             <p>{notification.message}</p>
             <small>{new Date(notification.createdAt).toLocaleString()}</small>
           </div>
         ))}
-      </div> */}
+      </div>
+      */}
     </div>
   );
 };
