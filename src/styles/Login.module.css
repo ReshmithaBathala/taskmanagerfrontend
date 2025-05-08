@@ -1,0 +1,165 @@
+/* 📁 src/styles/Login.module.css */
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    padding: 2rem;
+  }
+  
+  .loginCard {
+    width: 100%;
+    max-width: 500px;
+    padding: 3rem;
+    background: rgba(15, 23, 42, 0.8);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow:
+      0 0 20px rgba(109, 40, 217, 0.3),
+      0 0 40px rgba(59, 130, 246, 0.2);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .loginCard::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      to bottom right,
+      transparent 0%,
+      rgba(109, 40, 217, 0.1) 50%,
+      transparent 100%
+    );
+    animation: shine 6s infinite linear;
+    transform: rotate(30deg);
+  }
+  
+  @keyframes shine {
+    0% { transform: translateX(-100%) rotate(30deg); }
+    100% { transform: translateX(100%) rotate(30deg); }
+  }
+  
+  .title {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    background: linear-gradient(90deg, #6d28d9, #3b82f6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+  }
+  
+  .formGroup {
+    margin-bottom: 2rem;
+    position: relative;
+  }
+  
+  .label {
+    display: block;
+    margin-bottom: 0.8rem;
+    color: #e2e8f0;
+    font-size: 1rem;
+    letter-spacing: 1px;
+  }
+  
+  .input {
+    width: 100%;
+    padding: 1.2rem;
+    background: rgba(30, 41, 59, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #f8fafc;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+  
+  .input:focus {
+    outline: none;
+    border-color: #6d28d9;
+    box-shadow: 0 0 0 2px rgba(109, 40, 217, 0.4);
+  }
+  
+  .input::placeholder {
+    color: #94a3b8;
+  }
+  
+  .error {
+    color: #ef4444;
+    margin: 1rem 0;
+    text-align: center;
+    font-size: 0.9rem;
+    animation: shake 0.5s ease;
+  }
+  
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-5px); }
+    40%, 80% { transform: translateX(5px); }
+  }
+  
+  .submitButton {
+    width: 100%;
+    padding: 1.2rem;
+    background: linear-gradient(90deg, #6d28d9, #3b82f6);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .submitButton::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    transform: translateX(-100%);
+    transition: 0.5s;
+  }
+  
+  .submitButton:hover::after {
+    transform: translateX(100%);
+  }
+  
+  .submitButton:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 20px rgba(59, 130, 246, 0.6);
+  }
+  
+  .submitButton:active {
+    transform: translateY(1px);
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .loginCard {
+      padding: 2rem;
+    }
+    
+    .title {
+      font-size: 2rem;
+    }
+  }
