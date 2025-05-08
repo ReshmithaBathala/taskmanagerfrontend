@@ -1,41 +1,104 @@
-# URL: https://sparkly-conkies-08dd48.netlify.app/
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+## URL: https://ubiquitous-bombolone-8faff0.netlify.app/
 
-## Getting Started
+#  Task Management Web App
 
-First, run the development server:
+A full-stack task management application that allows users to register, log in, and manage their daily tasks with features like categorization, status updates, and real-time syncing.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Tech Stack
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Frontend
+- **Framework**: Next.js (React)
+- **Styling**: CSS Modules
+- **State Management**: React Context API (Auth)
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+### Backend
+- **Framework**: Node.js with Express.js
+- **Database**: MongoDB (Mongoose ORM)
+- **Authentication**: JWT (JSON Web Tokens)
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+---
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+##  Features
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- User Registration & Login
+- JWT Authentication & Session Persistence
+- Create, View, Update, Delete Tasks
+- Categorize Tasks by Status (To Do, In Progress, Done)
+- Filter by Category or Priority
+- Responsive UI
+- Logout Functionality
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## ⚙️ Setup Instructions
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+### Prerequisites
+- Node.js ≥ 14.x
+- npm ≥ 6.x or yarn
+- MongoDB (Atlas or local)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+### Backend Setup
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/<your-username>/Task-management-backend.git
+   cd Task-management-backend
+   npm install
+   ```
+2. Create .env file:
+   ```
+   PORT=5000
+   MONGO_URI=your_mongodb_connection_string
+   JWT_SECRET=your_jwt_secret
+   ```
+3. Start the server:
+   ```
+   npm start
+   ```
+   The backend will run at http://localhost:5000
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+## Frontend Setup
+1. Clone the frontend repo:
+   ```
+   git clone https://github.com/<your-username>/Task-management-frontend.git
+   cd Task-management-frontend
+   ```
+2. Install dependencies:
+   ```
+   npm install
+   ```
+3. Start the development server:
+   ```
+   npm run dev
+   ```
+   The frontend will run at http://localhost:3000
+
+## Project Structure
+
+Task-management-frontend/
+│
+├── pages/              # Next.js pages (Login, Register, Dashboard)
+├── components/         # Reusable components
+├── context/            # Auth Context
+├── styles/             # CSS Modules
+├── utils/              # API calls or helper functions
+└── public/             # Static assets
+
+Task-management-backend/
+│
+├── routes/             # Auth & Task routes
+├── models/             # Mongoose schemas
+├── controllers/        # Route logic
+├── middleware/         # Auth middleware
+└── server.js           # Entry point
+
+
+# Deployment
+Backend: Render
+
+Frontend: Vercel
+
+
+
